@@ -1,0 +1,77 @@
+name: Daily collect
+
+on:
+  schedule:
+    # 22:00 UTC = 다음날 07:00 KST
+    - cron: '0 22 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: '파일을 쓰지 않고 결과만 확인'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install collector deps
+        working-directory: collector
+        run: npm install --no-audit --no-fund
+
+      - name: Collect
+        working-directory: collector
+        env:
+          WORKNET_ENDPOINT: ${{ secrets.WORKNET_ENDPOINT }}
+          WORKNET_SERVICE_KEY: ${{ secrets.WORKNET_SERVICE_KEY }}
+          SARAMIN_ENDPOINT: ${{ secrets.SARAMIN_ENDPOINT }}
+          SARAMIN_ACCESS_KEY: ${{ secrets.SARAMIN_ACCESS_KEY }}
+        run: node src/index.js ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Commit data
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git config user.name  "battery-job-daily-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "변경 없음 — 커밋 생략"
+          else
+            git commit -m "data: 자동 갱신 $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M KST')"
+            git push
+          fi
+
+  deploy:
+    needs: collect
+    if: ${{ !inputs.dry_run }}
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - id: deployment
+        uses: actions/deploy-pages@v4

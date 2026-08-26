@@ -1,0 +1,84 @@
+{
+  "_notice": "기업 규모는 추측하지 않는다. size_source.verified=false 는 '근거는 알려져 있으나 이 저장소에서 자동 검증하지 않았음'을 뜻하며 UI에 '근거 미검증'으로 노출된다. careers_url 은 실제 접속 확인된 것만 채운다.",
+  "companies": [
+    {
+      "id": "lges",
+      "name": "LG에너지솔루션",
+      "aliases": ["LG Energy Solution", "LGES", "엘지에너지솔루션"],
+      "domain": "lgensol.com",
+      "size": "대기업",
+      "size_source": {
+        "label": "공정거래위원회 공시대상기업집단(LG) 소속 계열사",
+        "url": null,
+        "year": null,
+        "verified": false
+      },
+      "careers_url": "https://www.lgensol.com/kr/career-recruit",
+      "careers_url_alt": "https://careers.lg.com/apply?c=LGES",
+      "careers_url_checked": "2026-08-26",
+      "talent_statement": null,
+      "talent_source": null,
+      "salary_entry": null,
+      "salary_year": null,
+      "salary_source": null
+    },
+    {
+      "id": "samsungsdi",
+      "name": "삼성SDI",
+      "aliases": ["Samsung SDI", "삼성에스디아이"],
+      "domain": "samsungsdi.co.kr",
+      "size": "대기업",
+      "size_source": {
+        "label": "공정거래위원회 공시대상기업집단(삼성) 소속 계열사",
+        "url": null,
+        "year": null,
+        "verified": false
+      },
+      "careers_url": "https://www.samsungcareers.com/",
+      "careers_url_alt": "https://www.samsungsdi.co.kr/career/employment-procedure.html",
+      "careers_url_checked": "2026-08-26",
+      "talent_statement": null,
+      "talent_source": null,
+      "salary_entry": null,
+      "salary_year": null,
+      "salary_source": null
+    },
+    {
+      "id": "skon",
+      "name": "SK온",
+      "aliases": ["SK On", "에스케이온"],
+      "domain": "sk-on.com",
+      "size": "대기업",
+      "size_source": {
+        "label": "공정거래위원회 공시대상기업집단(SK) 소속 계열사",
+        "url": null,
+        "year": null,
+        "verified": false
+      },
+      "careers_url": "https://www.skcareers.com/Recruit",
+      "careers_url_alt": "http://www.sk-on.com/recruit/recruiting.asp",
+      "careers_url_checked": "2026-08-26",
+      "talent_statement": null,
+      "talent_source": null,
+      "salary_entry": null,
+      "salary_year": null,
+      "salary_source": null
+    },
+    {
+      "id": "unverified-template",
+      "name": "(신규 기업 추가 템플릿)",
+      "aliases": [],
+      "domain": null,
+      "size": "분류 미확인",
+      "size_source": { "label": null, "url": null, "year": null, "verified": false },
+      "careers_url": null,
+      "careers_url_alt": null,
+      "careers_url_checked": null,
+      "talent_statement": null,
+      "talent_source": null,
+      "salary_entry": null,
+      "salary_year": null,
+      "salary_source": null
+    }
+  ]
+}
