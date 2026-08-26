@@ -1,13 +1,45 @@
 {
-  "last_run_at": "2026-08-26T07:00:00+09:00",
+  "last_run_at": "2026-08-26T07:22:56.041Z",
   "last_success_at": null,
-  "run_status": "seed",
-  "error": null,
+  "run_status": "failed",
+  "error": "활성화된 수집 소스가 없습니다 (config.js 및 시크릿 확인)",
   "is_sample": true,
-  "counts": { "new_today": 0, "active": 0, "closing_7d": 0, "archived": 0 },
+  "counts": {
+    "new_today": 0,
+    "active": 0,
+    "closing_7d": 0,
+    "archived": 0
+  },
   "sources": [
-    { "name": "고용24 채용정보 API", "status": "미설정", "items": 0, "note": "SERVICE_KEY 미등록" },
-    { "name": "사람인 오픈 API", "status": "미설정", "items": 0, "note": "SARAMIN_ACCESS_KEY 미등록" },
-    { "name": "기업 공식 채용페이지", "status": "미설정", "items": 0, "note": "collector/src/config.js 의 SITES 에 어댑터 추가 필요" }
+    {
+      "name": "고용24(워크넷) 채용정보 API",
+      "status": "미검증",
+      "items": 0,
+      "note": "엔드포인트/파라미터를 문서에서 확인한 뒤 config.js 의 verified 를 true 로 바꾸세요"
+    },
+    {
+      "name": "사람인 오픈 API",
+      "status": "미검증",
+      "items": 0,
+      "note": "엔드포인트/파라미터를 문서에서 확인한 뒤 config.js 의 verified 를 true 로 바꾸세요"
+    },
+    {
+      "name": "LG에너지솔루션 공식 채용페이지",
+      "status": "미설정",
+      "items": 0,
+      "note": "config.js 의 selectors 를 채워야 파싱됩니다 (JS 렌더링 페이지는 목록 API 사용 권장)"
+    },
+    {
+      "name": "SK온 공식 채용페이지",
+      "status": "미설정",
+      "items": 0,
+      "note": "config.js 의 selectors 를 채워야 파싱됩니다 (JS 렌더링 페이지는 목록 API 사용 권장)"
+    },
+    {
+      "name": "삼성SDI 공식 채용페이지",
+      "status": "미설정",
+      "items": 0,
+      "note": "config.js 의 selectors 를 채워야 파싱됩니다 (JS 렌더링 페이지는 목록 API 사용 권장)"
+    }
   ]
 }
