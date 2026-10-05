@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-04T00:27:04.847Z",
+  "last_run_at": "2026-10-05T00:40:12.019Z",
   "last_success_at": null,
   "run_status": "failed",
   "error": "활성화된 수집 소스가 없습니다 (config.js 및 시크릿 확인)",
